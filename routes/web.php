@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
+use App\Http\Controllers\TodoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +24,7 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 // 追記
-Route::get('{any}', function () {
+Auth::routes();
+Route::get('/{any}', function() {
     return view('app');
-})->where('any','.*');
+})->where('any', '.*');
