@@ -7,7 +7,8 @@
         "watch-poll": "mix watch -- --watch-options-poll=1000",
         "hot": "mix watch --hot",
         "prod": "npm run production",
-        "production": "mix --production"
+        "production": "mix --production",
+        "start": "react-scripts start"
     },
     "devDependencies": {
         "@babel/preset-react": "^7.13.13",
@@ -40,5 +41,9 @@
         "@testing-library/jest-dom": "^5.16.2",
         "@testing-library/react": "^11.2.7",
         "@testing-library/user-event": "^12.8.3"
+    },
+    "dependencies": {
+        "@tanstack/react-query": "^4.2.3",
+        "react-toastify": "^9.0.8"
     }
 }

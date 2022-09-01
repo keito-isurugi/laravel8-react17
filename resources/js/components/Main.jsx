@@ -13,20 +13,9 @@ export const Main = () => {
     setTodoName(event.target.value)
   }
   
-  // console.log(todos)
   const fetchTodos = async () => {
-    // await axios.get("http://localhost:8008/api/fetch_todos")
     const { data } = await client.get('/api/fetch_todos')
     setTodos(data)
-    // .then(res => {
-    //   console.log(res.data)
-    //   setTodos(res.data)
-    //   // setResData(res.data);
-    //   // setIsLoading(false);
-    // }).catch(error => {
-    //   // console.log(error);
-    //   // setIsLoading(false);
-    // })
   }
   useEffect(() => {
     fetchTodos()
@@ -54,6 +43,15 @@ export const Main = () => {
     postMethod('/api/delete_todo', params).then((_response) => fetchTodos())
   }
 
+  // ログインお試し
+  // useEffect(() => {
+  //   axios.post('/api/login', {
+  //     email: 'tanaka@email.com',
+  //     password: 'admin'
+  //   }).then(response => {
+  //     console.log(response)
+  //   })
+  // })
 
 
   return (
