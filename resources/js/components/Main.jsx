@@ -1,7 +1,6 @@
 import { useState, useEffect, ChangeEvent } from "react"
 import { client, postMethod } from './lib/axios'
 import { createURLSearchParams } from './utils'
-import axios from "axios";
 
 const WORK_IN_PROGRESS = '作業中'
 const DONE = '完了'

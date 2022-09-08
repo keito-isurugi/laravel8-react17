@@ -2,15 +2,14 @@
 
 namespace App\Http\Controllers\Api\Auth;
 
+use App\Http\Controllers\Controller;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\Controller;
-use App\Models\User;
-use Illuminate\Support\Facades\Hash;
-use Validator;
 
 class LoginController extends Controller
 {
+    use AuthenticatesUsers;
     /**
      * Handle an authentication attempt.
      *
@@ -26,7 +25,6 @@ class LoginController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-
             return response()->json(Auth::user());
         }
 

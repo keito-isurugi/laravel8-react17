@@ -24,7 +24,7 @@ use App\Http\Controllers\TodoController;
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 // 追記
-Auth::routes();
+// Auth::routes();
 Route::get('/{any}', function() {
     return view('app');
 })->where('any', '.*');

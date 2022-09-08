@@ -23,13 +23,16 @@ use Illuminate\Support\Facades\Route;
 Route::post('login', [LoginController::class, 'login']);
 Route::post('logout', [LoginController::class, 'logout']);
 
-Route::group(['middleware' => 'auth:sanctum'], function() {
-  Route::get('/user', function (Request $request) {
-    return $request->user();
-  });
-  Route::get('/fetch_todos', [TodoController::class, 'fetchTodos']);
-  Route::post('/push_todo', [TodoController::class, 'pushTodo']);
-  Route::post('/change_status', [TodoController::class, 'changeStatus']);
-  Route::post('/delete_todo', [TodoController::class, 'deleteTodo']);
-});
 
+// Route::group(['middleware' => 'auth:sanctum'], function() {
+//   Route::get('user', function (Request $request) {
+//     return $request->user();
+//   });
+//   Route::get('/fetch_todos', [TodoController::class, 'fetchTodos']);
+//   Route::post('/push_todo', [TodoController::class, 'pushTodo']);
+//   Route::post('/change_status', [TodoController::class, 'changeStatus']);
+//   Route::post('/delete_todo', [TodoController::class, 'deleteTodo']);
+// });
+Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
+  return $request->user();
+});

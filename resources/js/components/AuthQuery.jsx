@@ -2,7 +2,7 @@ import React, { createContext, useState, useContext, Children } from "react";
 import * as api from "./AuthApi"
 import { useQuery, useMutation } from "@tanstack/react-query"
 import { toast } from 'react-toastify'
-import { useAuth, AuthContext } from "../hooks/AuthContext"
+import { useAuth } from "../hooks/AuthContext"
 
 const useUser = () => {
   return useQuery('users', api.getUser)
@@ -10,13 +10,11 @@ const useUser = () => {
 
 const useLogin = () => {
   const { setIsAuth, isAuth } = useAuth()
-  // const [isAuth, setIsAuth] = useContext(AuthContext)
 
   return useMutation(api.login, {
     onSuccess: (user) => {
       if(user) {
         setIsAuth(true)
-        // console.log(isAuth)
       }
       // user && setIsAuth(true)
     },
